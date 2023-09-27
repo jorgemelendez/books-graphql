@@ -1,6 +1,6 @@
 type Query {
     allBooks: [Book]
-
+    findById(id: ID!): Book
 }
 
 type Book {

@@ -3,6 +3,7 @@ package dev.jorgemelendez.booksgraphql.controller;
 import dev.jorgemelendez.booksgraphql.model.Book;
 import dev.jorgemelendez.booksgraphql.repository.BookRepository;
 import java.util.List;
+import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Controller;
 
@@ -19,5 +20,10 @@ public class BookController {
   @QueryMapping
   public List<Book> allBooks() {
     return bookRepository.findAll();
+  }
+
+  @QueryMapping
+  public Book findById(@Argument Integer id) {
+    return bookRepository.findOne(id);
   }
 }
